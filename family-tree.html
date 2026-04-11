@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree - The Williams Family</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tree-container {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            overflow-x: auto;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .generation {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            width: 100%;
+        }
+
+        .generation.generation-1 {
+            gap: 100px;
+        }
+
+        .generation.generation-2 {
+            gap: 60px;
+        }
+
+        .generation.generation-3 {
+            gap: 40px;
+        }
+
+        .member-box {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            min-width: 150px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .member-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            border-color: #764ba2;
+        }
+
+        .member-box h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .member-box p {
+            margin: 5px 0 0 0;
+            color: #667eea;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .member-box .title {
+            color: #999;
+            font-size: 0.8rem;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* Connector Lines */
+        .generation::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 25%;
+            right: 25%;
+            height: 30px;
+            border-left: 2px solid #ddd;
+            border-right: 2px solid #ddd;
+            border-top: 2px solid #ddd;
+        }
+
+        .couple {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .couple::between {
+            content: '♥';
+            color: #764ba2;
+            font-size: 20px;
+        }
+
+        .couple-separator {
+            color: #764ba2;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .children-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .family-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .legend {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        .legend h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .legend-box {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            background: white;
+        }
+
+        .generation-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .generation {
+                gap: 20px;
+            }
+
+            .member-box {
+                min-width: 130px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tree-container {
+                padding: 20px 10px;
+            }
+
+            .member-box {
+                min-width: 110px;
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .member-box h4 {
+                font-size: 0.85rem;
+            }
+
+            .couple {
+                gap: 10px;
+            }
+        }
+
+        .generation-title {
+            width: 100%;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">👨‍👩‍👧‍👦 The Williams Family</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="members.html">Family Members</a></li>
+                <li><a href="family-tree.html" class="active">Family Tree</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Williams Family Tree</h1>
+            <p>Generations Connected</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="section">
+            <!-- Legend -->
+            <div class="legend">
+                <h3>Understanding the Family Tree</h3>
+                <div class="legend-item">
+                    <div class="legend-box"></div>
+                    <span>Family Member</span>
+                </div>
+                <div class="legend-item">
+                    <span style="color: #764ba2; font-size: 1.2rem;">♥</span>
+                    <span>Married Couple</span>
+                </div>
+            </div>
+
+            <!-- Family Tree -->
+            <div class="tree-container">
+                <div class="tree">
+                    <!-- Generation 1: Founding Members -->
+                    <div class="generation-title">Generation 1: Patriarchs & Matriarchs</div>
+                    <div class="generation generation-1">
+                        <div class="couple">
+                            <div class="member-box">
+                                <h4>John Williams</h4>
+                                <p>Patriarch</p>
+                                <div class="title">Business Executive</div>
+                            </div>
+                            <div class="couple-separator">♥</div>
+                            <div class="member-box">
+                                <h4>Sarah Williams</h4>
+                                <p>Matriarch</p>
+                                <div class="title">Community Volunteer</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generation 2: Children -->
+                    <div class="generation-title">Generation 2: Children</div>
+                    <div class="generation generation-2">
+                        <div class="family-branch">
+                            <div class="couple">
+                                <div class="member-box">
+                                    <h4>Michael Williams</h4>
+                                    <p>Son</p>
+                                    <div class="title">Software Engineer</div>
+                                </div>
+                                <div class="couple-separator">♥</div>
+                                <div class="member-box">
+                                    <h4>Jasmine Williams</h4>
+                                    <p>Daughter-in-Law</p>
+                                    <div class="title">Medical Doctor</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="family-branch">
+                            <div class="couple">
+                                <div class="member-box">
+                                    <h4>Emily Williams</h4>
+                                    <p>Daughter</p>
+                                    <div class="title">Graphic Designer</div>
+                                </div>
+                                <div class="couple-separator">♥</div>
+                                <div class="member-box">
+                                    <h4>Marcus Williams</h4>
+                                    <p>Son-in-Law</p>
+                                    <div class="title">Architect</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generation 3: Grandchildren -->
+                    <div class="generation-title">Generation 3: Grandchildren</div>
+                    <div class="generation generation-3">
+                        <div class="children-group">
+                            <p style="font-size: 0.9rem; color: #999; margin-bottom: 0;">Michael & Jasmine's Children</p>
+                            <div style="display: flex; gap: 20px;">
+                                <div class="member-box">
+                                    <h4>David Williams</h4>
+                                    <p>Grandson</p>
+                                    <div class="title">College Student</div>
+                                </div>
+                                <div class="member-box">
+                                    <h4>Sophie Williams</h4>
+                                    <p>Granddaughter</p>
+                                    <div class="title">High School Student</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="children-group">
+                            <p style="font-size: 0.9rem; color: #999; margin-bottom: 0;">Emily & Marcus's Children</p>
+                            <div style="display: flex; gap: 20px;">
+                                <div class="member-box">
+                                    <h4>James Williams</h4>
+                                    <p>Great-Grandson</p>
+                                    <div class="title">University Student</div>
+                                </div>
+                                <div class="member-box">
+                                    <h4>Zara Williams</h4>
+                                    <p>Great-Granddaughter</p>
+                                    <div class="title">Elementary Teacher</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Family Statistics -->
+            <div style="background: white; padding: 30px; border-radius: 8px; margin-top: 40px;">
+                <h2 style="text-align: center; margin-top: 0;">Family Statistics</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                    <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                        <h3 style="color: #667eea; margin: 0;">3</h3>
+                        <p style="color: #666; margin-top: 10px;">Generations</p>
+                    </div>
+                    <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                        <h3 style="color: #667eea; margin: 0;">10</h3>
+                        <p style="color: #666; margin-top: 10px;">Family Members</p>
+                    </div>
+                    <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                        <h3 style="color: #667eea; margin: 0;">3</h3>
+                        <p style="color: #666; margin-top: 10px;">Married Couples</p>
+                    </div>
+                    <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                        <h3 style="color: #667eea; margin: 0;">4</h3>
+                        <p style="color: #666; margin-top: 10px;">Grandchildren</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 The Williams Family. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="contact.html" title="Email">✉️</a>
+            </div>
+            <p>Made with ❤️ for our family</p>
+        </div>
+    </footer>
+</body>
+</html>

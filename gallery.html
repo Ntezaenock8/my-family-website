@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - The Williams Family</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .gallery-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .gallery-info h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .gallery-info p {
+            color: #666;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+                padding: 20px 10px;
+            }
+
+            .gallery-image {
+                height: 150px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">👨‍👩‍👧‍👦 The Williams Family</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="members.html">Family Members</a></li>
+                <li><a href="family-tree.html">Family Tree</a></li>
+                <li><a href="gallery.html" class="active">Photo Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Family Photo Gallery</h1>
+            <p>Memories Worth Keeping</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="section">
+            <h2 style="text-align: center; margin-bottom: 10px;">Our Cherished Moments</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">A collection of memories that define our family</p>
+            
+            <div class="gallery-container">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
+                    <img src="images (9).jpg" alt="Summer Picnic" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Summer Picnic</h3>
+                        <p>July 2025</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
+                    <img src="images (6).jpg" alt="Holiday Christmas" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Holiday Christmas</h3>
+                        <p>December 2024</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
+                    <img src="images (7).jpg" alt="Birthday Celebration" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Birthday Celebration</h3>
+                        <p>March 2025</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item">
+                    <img src="images (8).jpg" alt="Beach Vacation" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Beach Vacation</h3>
+                        <p>June 2025</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item">
+                    <img src="images (10).jpg" alt="Mountain Adventure" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Mountain Adventure</h3>
+                        <p>September 2024</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="download (5).jpg" alt="New Year Party" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>New Year Party</h3>
+                        <p>January 2026</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item">
+                    <img src="download (6).jpg" alt="Graduation Day" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Graduation Day</h3>
+                        <p>May 2025</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item">
+                    <img src="download (7).jpg" alt="Wedding Ceremony" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Wedding Ceremony</h3>
+                        <p>August 2024</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item">
+                    <img src="images (6).jpg" alt="Fall Gathering" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Fall Gathering</h3>
+                        <p>October 2024</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 10 -->
+                <div class="gallery-item">
+                    <img src="images (7).jpg" alt="Family Portrait" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Family Portrait</h3>
+                        <p>April 2025</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 11 -->
+                <div class="gallery-item">
+                    <img src="images (8).jpg" alt="Birthday Cake & Celebration" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Birthday Cake</h3>
+                        <p>February 2025</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 12 -->
+                <div class="gallery-item">
+                    <img src="images (10).jpg" alt="Home Memories" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div class="gallery-info">
+                        <h3>Home Memories</h3>
+                        <p>November 2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center; padding: 40px 20px; background: #f9f9f9; margin-top: 40px; border-radius: 8px;">
+            <h2>Have Photos to Share?</h2>
+            <p style="color: #666; margin-bottom: 20px;">We'd love to see your family moments! Contact us to add your photos to our gallery.</p>
+            <a href="contact.html" class="btn btn-primary">Share Your Photos</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 The Williams Family. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="contact.html" title="Email">✉️</a>
+            </div>
+            <p>Made with ❤️ for our family</p>
+        </div>
+    </footer>
+</body>
+</html>
